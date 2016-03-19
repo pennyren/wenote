@@ -1,0 +1,71 @@
+#preview {
+	color: #34495e;
+    font-size: 15px;
+    line-height: 1.6;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    a {
+    	color: #42b983;
+    }
+    ul {
+    	margin: 16px 0;
+	    list-style-type: disc;
+	    padding-left: 28px;
+    }
+    blockquote {
+		margin: 20px 0;
+	    padding-left: 20px;
+	    border-left: 4px solid #42b983;
+    }
+    h1, h2, h3, h4, h5, h6 {
+    	position: relative;
+		font-size: 22px;
+		&:before {
+			content: "#";
+		    color: #42b983;
+		    position: absolute;
+		   	left: -18px;
+		    bottom: -4px;
+		    font-size: 26px;
+		    font-weight: bold;
+		}
+    }
+    code {
+    	font-family: 'Roboto Mono', Monaco, courier, monospace;
+    	margin: 0 2px;
+	    padding: 3px 5px;
+	    color: #e96900;
+	    border-radius: 2px;
+	   	font-size: 0.8em;
+	    background-color: #f8f8f8;
+    }
+    pre code {
+    	display: block;
+	    padding: 12px 14px;
+	    line-height: 16px;
+	    background-color: #f8f8f8;
+	    overflow-x: auto;
+	    color: #525252;
+	    font-size: 10px;
+	    .hljs-keyword, .hljs-attr, .hljs-attribute {
+	    	color: #e96900;
+	    }
+	    .hljs-built_in, .hljs-string, .lang-css {
+	    	color: #42b983;
+	    }
+	    .hljs-comment, .hljs-meta {
+	    	color: #b3b3b3;
+	    }
+	    .hljs-number, .hljs-literal {
+	    	color: #ae81ff;
+	    }
+	    .hljs-tag, .hljs-selector-tag {
+	    	color: #2973b7;
+	    }
+	    .hljs-function .hljs-keyword {
+	    	color: #0092db;
+	    }
+	    .hljs-function .hljs-title {
+	    	color: #83B917;
+	    }
+	}
+}

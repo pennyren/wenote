@@ -1,0 +1,15 @@
+{
+	"name": "wenote",
+	"description": "The best note platform with markdown",
+	"version": "1.0.0",
+	"author": "pennyren",
+	"main": "gulpfile.js",
+	"dependencies": {
+		"del": "^2.0.1",
+    	"gulp": "^3.9.0",
+	    "gulp-less": "^3.0.3",
+	    "hbsp": "^0.1.0",
+	    "gulp-concat": "^2.6.0"
+	},
+	"devDependencies": {}
+}

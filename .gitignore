@@ -1,0 +1,18 @@
+# ignore node modules
+node_modules/
+
+# ignore css file
+src/webapp/css/
+src/webapp/_common/css/
+
+# ignore the templates.js
+src/webapp/js/templates.js
+src/webapp/_common/js/templates.js
+
+# ignore build file
+src/assets/_common/build.js
+src/assets/_common/build.css
+
+# ignore app file
+src/assets/app.js
+src/assets/app.css

@@ -1,0 +1,15 @@
+<script id="CreateView" type="text/html">
+	<div class="CreateView {{#if note}}note{{/if}}">
+		<div class="wrap">
+			<header>
+				<div class="icon"><span class="mdi {{#if note}}mdi-file-document{{else}}mdi-library-books{{/if}}"></span></div>
+				<div class="text"><span>{{#if note}}创建笔记{{else}}创建笔记本{{/if}}</span></div>
+			</header>
+			<input placeholder="{{#if note}}笔记名{{else}}笔记本名称{{/if}}"></input>
+			<div class="btn-wrap clearfix">
+				<button class="btn btn-cancel">取消</button>
+				<button class="btn btn-confirm">{{#if note}}创建笔记{{else}}创建笔记本{{/if}}</button>
+			</div>
+		</div>
+	</div>
+</script>

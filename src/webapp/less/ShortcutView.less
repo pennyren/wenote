@@ -1,0 +1,88 @@
+.ShortcutView {
+	position: absolute;
+	height: 100%;
+	left: 73px;
+	right: 0;
+	overflow: hidden;
+	font-family: gotham, helvetica, arial, sans-serif;
+	.slide {
+		position: absolute;
+		left: -400px;
+	    height: 100%;
+	    width: 400px;
+	    border-right: 3px solid rgba(236, 236, 236, 0.7);
+	    background-color: #fff;
+	    transition: left 0.4s ease-in-out;
+	    z-index: 1;
+	    &.slide-done {
+	    	left: 0;
+	    }
+	    .title {
+	    	padding: 24px;
+		    color: #878787;
+		   	border-bottom: 1px solid #ececec;
+		    font-size: 21px;
+		    font-weight: 300;
+		   	letter-spacing: 0.5px;
+	    }
+	    .shortcut-wrap {
+	    	height: 100%;
+    		margin-top: 8px;
+    		.item {
+    			height: 35px;
+			   	padding-left: 36px;
+			    padding-top: 6px;
+			    color: #4a4a4a;
+			  	font-weight: 300;
+			    cursor: pointer;
+			    
+			    .delete {
+			    	float: right;
+					margin-right: 24px;
+					display: none;
+					position: relative;
+			    }
+			    .tip:before {
+					top: 16px;
+				    left: 1px;
+				    margin-top: -8px;
+				    border-bottom-color: #606060;
+			    }
+			    .tip:after {
+					top: 26px;
+				    right: -20px;
+				    margin-top: -8px;
+				    background: #606060;
+				    padding: 6px;
+				    border-radius: 4px;
+				    font-size: 12px;
+				    margin-right: -12px;
+			    }
+			    .tip:hover:before, .tip:hover:after {
+					margin-top: 0;
+			    }
+			    & > span {
+					margin-right: 8px;
+			    }
+			    &:hover {
+			    	background-color: #2dbe60;
+					opacity: 0.9;
+					color: #fff;
+					.delete {
+						display: block;
+					}
+			    }
+    		}
+	    }
+	}
+	.bkg {
+		height: 100%;
+		width: 100%;
+		background-color: #fff;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+		&.set-opacity {
+			opacity: .8;
+		}
+	}
+}
