@@ -16,3 +16,6 @@ src/assets/_common/build.css
 # ignore app file
 src/assets/app.js
 src/assets/app.css
+
+!src/assets/_common/
+!src/webapp/_common/tmpl/
