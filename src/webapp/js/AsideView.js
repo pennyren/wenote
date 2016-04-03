@@ -63,6 +63,19 @@
             "click; .add-note": function (e) {
                 var view = this;
                 brite.display("CreateView", "body", {note: true});
+            },
+            "click; .note": function (e) {
+                var view = this;
+                var $hasFocus= view.$el.find('.has-focus');
+               if ($hasFocus.length) {
+                    var index = $hasFocus.index();
+                    $hasFocus.removeClass("has-focus");
+                    if (index == 0) {
+                        view.$el.trigger("REMOVE_SHORTCUT_VIEW");
+                    } else {
+                        view.$el.trigger("REMOVE_NOTEBOOK_VIEW");
+                    }
+                }
             }
         }
 	});

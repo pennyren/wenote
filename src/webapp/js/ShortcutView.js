@@ -1,8 +1,7 @@
 (function() {
 	brite.registerView("ShortcutView",{
 		create: function() {
-            console.log(render("ShortcutView"));
-			return render("ShortcutView");
+           return render("ShortcutView");
 	    },
         postDisplay: function() {
       		var view = this;

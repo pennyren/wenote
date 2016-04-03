@@ -10,6 +10,12 @@
                 view.$el.find(".slide").addClass("slide-done");
             }, 100);
         },
+        events: {
+            "click; .plus": function (e) {
+                var view = this;
+                brite.display("CreateView", "body", {note: false});
+            }
+        },
         docEvents: {
             "REMOVE_NOTEBOOK_VIEW": function (e) {
                 var view = this;
