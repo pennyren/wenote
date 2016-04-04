@@ -66,8 +66,30 @@
             },
             "click; .note": function (e) {
                 var view = this;
+                view.$el.trigger("REMOVE_ASIDE");
+                var $search = view.$el.find('.search');
+                if ($search.hasClass('focus')) {
+                    view.$el.trigger("HIDE_SEARCH_CTX");
+                }
+                
+            },
+            "click; .search": function (e) {
+                var view = this;
+                var $cur = $(e.currentTarget);
+                $cur.toggleClass('focus');
+                view.$el.trigger("REMOVE_ASIDE");
+                if ($cur.hasClass('focus')) {
+                    view.$el.trigger("SHOW_SEARCH_CTX");
+                } else {
+                     view.$el.trigger("HIDE_SEARCH_CTX");
+                }
+            }
+        },
+        docEvents: {
+            "REMOVE_ASIDE": function (e) {
+                var view = this;
                 var $hasFocus= view.$el.find('.has-focus');
-               if ($hasFocus.length) {
+                if ($hasFocus.length) {
                     var index = $hasFocus.index();
                     $hasFocus.removeClass("has-focus");
                     if (index == 0) {

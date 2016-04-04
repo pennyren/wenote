@@ -56,22 +56,50 @@
 			cursor: pointer;
 			margin-top: 3px;
 			color: #2dbe60;
-			&:hover {
+			.wrap {
+				position: relative;
+				height: 100%;
+				width: 100%;
+				&:hover {
+					background-color: #2dbe60;
+					color: #fff;
+				}
+				.mdi {
+					font-size: 12px;
+					font-weight: 600;
+					&:first-child {
+						position: absolute;
+						left: 2px;
+					   	bottom: 2px;
+					}
+					&:last-child {
+						position: absolute;
+						right: 2px;
+						top: 2px;
+					}
+				}
+			}
+			.done {
+				display: none;
 				background-color: #2dbe60;
 				color: #fff;
-			}
-			.mdi {
-				font-size: 12px;
-				font-weight: 600;
-				&:first-child {
-					position: absolute;
-					left: 2px;
-				   	bottom: 2px;
+				height: 100%;
+				width: 100%;
+				&:hover {
+					opacity: 0.8;
 				}
-				&:last-child {
-					position: absolute;
-					right: 2px;
-					top: 2px;
+			}
+			&.focus {
+				width: 50px;
+    			font-size: 14px;
+				.wrap {
+					display: none;
+				}
+				.done {
+					display: inline-block;
+    				height: 100%;
+    				width: 100%;
+    				padding: 2px 8px;
 				}
 			}
 		}
@@ -99,8 +127,7 @@
 		    	position: relative;
 				top: 3px;
 		    }
-		    
-	    }
+		}
 	    .book-wrap {
 	    	position: absolute;
 	    	top: 86px;

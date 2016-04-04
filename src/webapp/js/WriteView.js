@@ -23,6 +23,16 @@
                 var view = this;
                 view.$noteBook.toggleClass('hidden');
                 brite.display("CreateView", "body", {note: false});
+            },
+            "click; .expand": function (e) {
+                var view = this;
+                var $cur = $(e.currentTarget);
+                $cur.toggleClass("focus");
+                if ($cur.hasClass('focus')) {
+                    view.$el.trigger('MAKE_VIEW_EXPAND');
+                } else {
+                     view.$el.trigger('VIEW_EXPAND_BACK');
+                }
             }
         }
     });
@@ -36,5 +46,4 @@
             }
         }));
     }
-
 })();
