@@ -2,17 +2,17 @@
 node_modules/
 
 # ignore css file
-src/webapp/css/
-src/webapp/_common/css/
+webapp/css/
+webapp/_common/css/
 
 # ignore the templates.js
-src/webapp/js/templates.js
-src/webapp/_common/js/templates.js
+webapp/js/templates.js
+webapp/_common/js/templates.js
 
 # ignore build file
-src/assets/_common/build.js
-src/assets/_common/build.css
+public/_common/build.js
+public/_common/build.css
 
 # ignore app file
-src/assets/app.js
-src/assets/app.css
+public/app.js
+public/app.css

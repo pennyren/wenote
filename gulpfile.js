@@ -8,8 +8,8 @@ var path = require('path');
 
 var hbsPrecompile = hbsp.precompile;
 
-var assetsDir = 'src/assets';
-var webappDir = 'src/webapp';
+var publicDir = 'public';
+var webappDir = 'webapp';
 var cssDir = path.join(webappDir, '/css/');
 var commonCssDir = path.join(webappDir, '/_common/css/');
 
@@ -66,23 +66,23 @@ gulp.task('hbs-common', function() {
 gulp.task('js', function () {
 	gulp.src(path.join(webappDir, '/js/', '*.js'))
 		.pipe(concat('app.js'))
-		.pipe(gulp.dest(assetsDir));
+		.pipe(gulp.dest(publicDir));
 });
 
 gulp.task('js-common', function () {
 	gulp.src(path.join(webappDir, '/_common/js/', '*.js'))
 		.pipe(concat('build.js'))
-		.pipe(gulp.dest(path.join(assetsDir, '/_common/')));
+		.pipe(gulp.dest(path.join(publicDir, '/_common/')));
 });
 
 gulp.task('css', function () {
 	gulp.src(path.join(webappDir, '/css/', '*.css'))
 		.pipe(concat('app.css'))
-		.pipe(gulp.dest(assetsDir));
+		.pipe(gulp.dest(publicDir));
 });
 
 gulp.task('css-common', function () {
 	gulp.src(path.join(webappDir, '/_common/css/', '*.css'))
 		.pipe(concat('build.css'))
-		.pipe(gulp.dest(path.join(assetsDir, '/_common/')));
+		.pipe(gulp.dest(path.join(publicDir, '/_common/')));
 });
