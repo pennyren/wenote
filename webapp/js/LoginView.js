@@ -41,7 +41,7 @@
             "click; .btn": function (e) {
                 var view = this;
                 view.$el.bRemove();
-                window.location.hash = "note";
+                app.router.set('!/note');
             }
         }
 	});

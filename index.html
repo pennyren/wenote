@@ -14,9 +14,8 @@
 <body>
     <script type="text/javascript">
         //init app
-        $(function () {
+        brite.display("MainScreen", "body").done(function () {
             app.router.init();
-            brite.display("MainScreen", "body");
         });
     </script>
 </body>

@@ -5,10 +5,10 @@
 	   },
         postDisplay: function(){
       		var view = this;
-            brite.display("MainView", ".MainScreen");
+            app.router.set('!/home');
         },
         docEvents: {
-    	   "APP_HASH_CHANGE": function (e) {
+    	   "CTX_CHANGE": function (e) {
                 var view = this;
                 var rootPath = app.router.pathAt(0);
                 var viewName = viewNameByPath[rootPath];
