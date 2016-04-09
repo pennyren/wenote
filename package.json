@@ -8,7 +8,7 @@
 		"body-parser": "^1.14.0",
 		"crypto": "0.0.3",
 		"express": "^4.13.3",
-		"mongoose": "^4.1.8",
+		"mongoose": "^4.1.8"
 	},
 	"devDependencies": {
 		"del": "^2.0.1",
