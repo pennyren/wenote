@@ -9,7 +9,7 @@ var path = require('path');
 var hbsPrecompile = hbsp.precompile;
 
 var publicDir = 'public';
-var webappDir = 'webapp';
+var webappDir = 'web';
 var cssDir = path.join(webappDir, '/css/');
 var commonCssDir = path.join(webappDir, '/_common/css/');
 

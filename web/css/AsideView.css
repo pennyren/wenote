@@ -1,0 +1,80 @@
+.AsideView {
+  padding: 18px;
+}
+.AsideView .logo img {
+  width: 36px;
+  height: 36px;
+}
+.AsideView li {
+  height: 36px;
+  border-radius: 18px;
+  text-align: center;
+  margin-bottom: 16px;
+  cursor: pointer;
+  color: #2dbe60;
+  position: relative;
+}
+.AsideView li span {
+  position: relative;
+  top: 5px;
+  font-size: 24px;
+}
+.AsideView .tip:before {
+  left: 88%;
+  top: 30%;
+  margin-left: -8px;
+  border-bottom-color: transparent;
+  border-right-color: #606060;
+}
+.AsideView .tip:after {
+  font-size: 12px;
+  left: 120%;
+  top: 4px;
+  margin-left: -8px;
+  padding: 6px;
+  border-radius: 4px;
+  background: #606060;
+}
+.AsideView .tip:hover:before,
+.AsideView .tip:hover:after {
+  margin-left: 0;
+}
+.AsideView .operate {
+  margin-top: 32px;
+}
+.AsideView .operate li {
+  border: 1px solid #ececec;
+  background-color: #fff;
+}
+.AsideView .operate li:hover {
+  background-color: #2dbe60;
+  border: none;
+  color: #fff;
+}
+.AsideView .content {
+  margin-top: 64px;
+}
+.AsideView .content li:hover {
+  background-color: #2dbe60;
+  color: #fff;
+}
+.AsideView .account {
+  border-top: 1px solid #e1e1e1;
+  position: absolute;
+  height: 73px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 17px;
+}
+.AsideView .account .account-wrap {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+.AsideView .account .account-wrap img {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  cursor: pointer;
+}

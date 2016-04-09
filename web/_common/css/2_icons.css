@@ -1,0 +1,60 @@
+.mdi {
+  display: inline-block;
+  font: normal normal normal 24px/1 "Material Design Icons";
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+.mdi.mdi-account:before {
+  content: "\f103";
+}
+.mdi.mdi-heart-outline:before {
+  content: "\f3c8";
+}
+.mdi.mdi-close-circle:before {
+  content: "\f24f";
+}
+.mdi.mdi-plus:before {
+  content: "\f504";
+}
+.mdi.mdi-magnify:before {
+  content: "\f43b";
+}
+.mdi.mdi-star:before {
+  content: "\f5bc";
+}
+.mdi.mdi-file-document:before {
+  content: "\f30e";
+}
+.mdi.mdi-library-books:before {
+  content: "\f424";
+}
+.mdi.mdi-exit:before {
+  content: "\f435";
+}
+.mdi.mdi-library-plus:before {
+  content: "\f426";
+}
+.mdi.mdi-information:before {
+  content: "\f3f0";
+}
+.mdi.mdi-delete:before {
+  content: "\f2b5";
+}
+.mdi.mdi-minus-outline:before {
+  content: "\f468";
+}
+.mdi.mdi-minus:before {
+  content: "\f467";
+}
+.mdi.mdi-chevron-down:before {
+  content: "\f236";
+}
+.mdi.mdi-arrow-bottom-left:before {
+  content: "\f141";
+}
+.mdi.mdi-arrow-top-right:before {
+  content: "\f155";
+}

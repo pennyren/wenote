@@ -1,0 +1,77 @@
+/*tooltip*/
+.tip:before {
+  position: absolute;
+  content: '';
+  background: transparent;
+  border: 6px solid transparent;
+  border-bottom-color: #383838;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+}
+.tip:after {
+  position: absolute;
+  content: attr(data-tip);
+  background: #383838;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+}
+.tip:hover:before,
+.tip:hover:after {
+  visibility: visible;
+  opacity: 1;
+  transition: all .3s ease;
+}
+/*popup*/
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+}
+.popup .content {
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+/*form group*/
+.form-group {
+  padding: 0 32px;
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: #747474;
+}
+.form-group input {
+  width: 100%;
+  height: 32px;
+  border: 1px solid #cacaca;
+  border-radius: 2px;
+}
+/*button*/
+.btn {
+  width: 79%;
+  margin-left: 32px;
+  height: 40px;
+  background-color: #2dbe60;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn:active {
+  opacity: 0.7;
+}
+.btn:focus {
+  outline: none;
+}

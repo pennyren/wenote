@@ -1,0 +1,95 @@
+.AccountView {
+  position: fixed;
+  bottom: 8px;
+  left: 63px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  width: 280px;
+  z-index: 300;
+}
+.AccountView .user-info {
+  padding-bottom: 4px;
+}
+.AccountView .user-info .img-wrap {
+  position: relative;
+  text-align: center;
+  margin-top: 16px;
+}
+.AccountView .user-info .img-wrap .tip:before {
+  left: 94%;
+  top: 40%;
+  margin-left: -10px;
+  border-bottom-color: transparent;
+  border-right-color: #606060;
+}
+.AccountView .user-info .img-wrap .tip:after {
+  font-size: 12px;
+  left: 112%;
+  top: 17px;
+  margin-left: -10px;
+  padding: 6px;
+  border-radius: 4px;
+  background: #606060;
+}
+.AccountView .user-info .img-wrap .tip:hover:before,
+.AccountView .user-info .img-wrap .tip:hover:after {
+  margin-left: 0;
+}
+.AccountView .user-info .img-wrap img {
+  height: 62px;
+  width: 62px;
+  border: 1px solid #ececec;
+  border-radius: 31px;
+}
+.AccountView .user-info .img-wrap .profile {
+  cursor: pointer;
+  height: 62px;
+  width: 62px;
+  position: absolute;
+  left: 50%;
+  margin-left: -31px;
+  top: 0;
+  border: 1px solid #2dbe60;
+  border-radius: 50%;
+  background: url(image/profile.png);
+  background-color: #2dbe60;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.AccountView .user-info .img-wrap .profile:hover {
+  opacity: .7;
+}
+.AccountView .user-info .user-name {
+  text-align: center;
+  color: #4a4a4a;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.AccountView .user-state {
+  border-top: 1px solid #e1e1e1;
+  margin: 0 12px 12px;
+  padding-top: 15px;
+}
+.AccountView .user-state li {
+  cursor: pointer;
+  color: #4a4a4a;
+  font-size: 14px;
+  height: 32px;
+  font-weight: 300;
+}
+.AccountView .user-state li:hover {
+  background-color: #2dbe60;
+  color: #fff;
+}
+.AccountView .user-state li .mdi {
+  margin: 8px;
+  position: relative;
+  top: 1px;
+}

@@ -1,0 +1,43 @@
+.NoteView {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.NoteView .sidebar {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 73px;
+  border-right: 1px solid #ececec;
+  background-color: #f8f8f8;
+  transition: left 0.6s ease-in-out;
+}
+.NoteView .sidebar.slow {
+  left: -320px;
+}
+.NoteView .list {
+  position: absolute;
+  left: 73px;
+  width: 320px;
+  height: 100%;
+  border-right: 1px solid #ececec;
+  transition: left 0.6s ease-in-out;
+}
+.NoteView .write {
+  position: absolute;
+  left: 392px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  min-width: 500px;
+  transition: left 0.6s ease-in-out;
+}
+.NoteView.expand .list {
+  left: -320px;
+}
+.NoteView.expand .write {
+  left: 0;
+}

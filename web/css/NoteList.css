@@ -1,0 +1,146 @@
+.NoteList {
+  height: 100%;
+  position: relative;
+}
+.NoteList header .search-ctx {
+  height: 71px;
+}
+.NoteList header .search-ctx input {
+  position: absolute;
+  top: 16px;
+  left: 5%;
+  width: 90%;
+  height: 48px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: #606060;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  outline: none;
+}
+.NoteList header .search-ctx .delete {
+  position: absolute;
+  right: 16px;
+  font-size: 20px;
+  top: 28px;
+  color: #e1e1e1;
+  cursor: pointer;
+}
+.NoteList header .title {
+  color: #878787;
+  font-size: 21px;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+  padding: 24px;
+  padding-bottom: 16px;
+}
+.NoteList header .count {
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
+  padding-left: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ececec;
+}
+.NoteList section {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 98px;
+}
+.NoteList section .list-wrap {
+  height: 100%;
+  overflow-y: scroll;
+}
+.NoteList section .list-wrap .item {
+  height: 120px;
+  cursor: pointer;
+  color: #878787;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: .5px;
+}
+.NoteList section .list-wrap .item .overview {
+  margin: 0 24px;
+  border-bottom: 1px solid #ececec;
+  height: 56px;
+}
+.NoteList section .list-wrap .item .title {
+  padding: 8px 24px;
+  padding-bottom: 4px;
+}
+.NoteList section .list-wrap .item .title .textfix {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4a4a4a;
+  float: left;
+  max-width: 75%;
+}
+.NoteList section .list-wrap .item .title .setting {
+  float: right;
+  font-size: 16px;
+  display: none;
+}
+.NoteList section .list-wrap .item .title .setting .tip {
+  float: right;
+  position: relative;
+  height: 30px;
+  width: 16px;
+}
+.NoteList section .list-wrap .item .title .setting .tip span:hover {
+  opacity: .7;
+}
+.NoteList section .list-wrap .item .title .setting .tip:before {
+  top: 16px;
+  left: 1px;
+  margin-top: -8px;
+  border-bottom-color: #606060;
+}
+.NoteList section .list-wrap .item .title .setting .tip:after {
+  top: 26px;
+  right: -20px;
+  margin-top: -8px;
+  background: #606060;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.NoteList section .list-wrap .item .title .setting .tip:last-child {
+  margin-right: 16px;
+}
+.NoteList section .list-wrap .item .title .setting .tip:last-child:after {
+  margin-right: -12px;
+}
+.NoteList section .list-wrap .item .title .setting .tip:hover:before,
+.NoteList section .list-wrap .item .title .setting .tip:hover:after {
+  margin-top: 0;
+}
+.NoteList section .list-wrap .item .time {
+  padding: 0 24px;
+}
+.NoteList section .list-wrap .item.checked {
+  border: 4px solid #d9d9d9;
+}
+.NoteList section .list-wrap .item.checked .overview {
+  border-bottom: none;
+}
+.NoteList section .list-wrap .item:hover {
+  background-color: #3fbc6c;
+  color: #fff;
+}
+.NoteList section .list-wrap .item:hover .overview {
+  border-bottom: none;
+}
+.NoteList section .list-wrap .item:hover .title .textfix {
+  color: #fff;
+}
+.NoteList section .list-wrap .item:hover .title .setting {
+  display: block;
+}
+.NoteList section .list-wrap .item.checked:hover {
+  border: none;
+}
