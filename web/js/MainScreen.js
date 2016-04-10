@@ -5,7 +5,7 @@
 	   },
         postDisplay: function(){
       		var view = this;
-            app.router.set('!/home');
+            app.router.set('!/welcome');
         },
         docEvents: {
     	   "CTX_CHANGE": function (e) {
@@ -17,12 +17,16 @@
                     view.$el.bEmpty();
                     brite.display(viewName, ".MainScreen");
                 }
+                if(rootPath != 'u') {
+                    view.$el.trigger('SCREEN_CHANGE');
+                }
             }
     	}
 	});
     //track hash, and manage view
     var viewNameByPath = {
-        "home": "MainView",
-        "note": "NoteView"
+        "welcome": "MainView",
+        "about": "MainView",
+        "u": "NoteView",
     };
 })();

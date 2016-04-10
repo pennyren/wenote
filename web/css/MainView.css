@@ -77,29 +77,29 @@
   position: relative;
   top: 3px;
 }
-.MainView .main .description {
+.MainView .body .description {
   text-align: center;
   padding: 66px 0 155px 0;
   margin-top: 70px;
 }
-.MainView .main .description h1 {
+.MainView .body .description h1 {
   font-weight: 300;
   font-size: 46px;
 }
-.MainView .main .description h1 b {
+.MainView .body .description h1 b {
   font-weight: 300;
   color: #e7645c;
 }
-.MainView .main .pen {
+.MainView .body .pen {
   margin-top: -80px;
   text-align: center;
 }
-.MainView .main .introduce {
+.MainView .body .introduce {
   margin-top: 115px;
   height: 56px;
   text-align: center;
 }
-.MainView .main .introduce a {
+.MainView .body .introduce a {
   position: relative;
   letter-spacing: 1px;
   line-height: 66px;
@@ -110,24 +110,24 @@
   border-radius: 3px;
   margin: 0 18px;
 }
-.MainView .main .introduce a:hover {
+.MainView .body .introduce a:hover {
   background: #f3f3f3;
 }
-.MainView .main .introduce a i {
+.MainView .body .introduce a i {
   color: #e7645c;
 }
-.MainView .main .introduce .tip:before {
+.MainView .body .introduce .tip:before {
   top: 100%;
   left: 50%;
   margin-top: -12px;
 }
-.MainView .main .introduce .tip:after {
+.MainView .body .introduce .tip:after {
   top: 66px;
   left: 40%;
   margin-top: -12px;
 }
-.MainView .main .introduce .tip:hover:before,
-.MainView .main .introduce .tip:hover:after {
+.MainView .body .introduce .tip:hover:before,
+.MainView .body .introduce .tip:hover:after {
   margin-top: 0;
 }
 .MainView .about {

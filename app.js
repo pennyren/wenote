@@ -8,6 +8,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.get('/', function (req, res) {
+  	res.sendFile(__dirname + '/index.html');
+});
 startRoutes(app);
 app.listen(app.get('port'), function () {
 	console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.')

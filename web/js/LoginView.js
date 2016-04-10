@@ -40,15 +40,8 @@
             },
             "click; .btn": function (e) {
                 var view = this;
-                app.doPost('/register', {
-                    username: 'sun',
-                    password: '123'
-                },function(result) {
-                    console.log(result);
-                });
-                return;
                 view.$el.bRemove();
-                app.router.set('!/note');
+                app.router.set('!/u/note');
             }
         }
 	});

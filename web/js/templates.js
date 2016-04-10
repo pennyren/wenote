@@ -55,7 +55,15 @@ Handlebars.templates['MainScreen']  = Handlebars.template({"compiler":[7,">= 4.0
 
 
 Handlebars.templates['MainView']  = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"MainView\">\r\n		<header>\r\n			<div class=\"nav\">\r\n				<a class=\"logo\" href=\"#\"><img src=\"images/icon.jpg\"></a>\r\n				<ul class=\"title\">\r\n					<li class=\"item-main\"><a href=\"#\">首页</a></li>\r\n					<li class=\"item-about\"><a href=\"#\">关于</a></li>\r\n				</ul>\r\n				<div class=\"login\">\r\n					<span><i class=\"mdi mdi-account\"></i>登录<span>\r\n				</div>\r\n			</div>\r\n		</header>\r\n\r\n		<section class=\"main\">\r\n			<div class=\"description\">\r\n				<h1>The Best <b>Note Platform</b> with Markdown</h1>\r\n			</div>\r\n			<div class=\"pen\">\r\n				<img src=\"images/pen.png\">\r\n			</div>\r\n			<div class=\"introduce\">\r\n				<a href=\"#\" data-tip=\"写笔记，wenote是个不错的选择?\" class=\"tip\">\r\n					<i class=\"mdi mdi-heart-outline\"></i>\r\n					<span>为何wenote</span>\r\n				</a>\r\n			</div>\r\n		</section>\r\n\r\n		<section class=\"about hidden\">\r\n			<ul>\r\n				<li>追求极简是我们的宗旨。wenote让一切都变得那么简单。</li>\r\n				<li>在前端我们用brite.js来管理组件，handelbars.js作为模板引擎，组件化是web开发的趋势。SPA页面让用户体验更佳。</li>\r\n				<li>后台使用高性能的node.js作为支撑，数据库使用mangodb。wenote让一切变得那么快速。</li>\r\n				<li>使用markdown记录身边点滴，wenote让一切都变得那么轻松。</li>\r\n				<li>那么让我们开始愉快写作之旅吧~</li>\r\n			</ul>\r\n		</section>\r\n		\r\n		<footer>\r\n			Simple is Everything.\r\n			<span>PennyRen</span>\r\n			<span>©2016 All Rights Reserved.</span>\r\n		</footer>\r\n	</div>";
+    return "<div class=\"MainView\">\r\n		<header>\r\n			<div class=\"nav\">\r\n				<a class=\"logo\" href=\"#!/welcome\"><img src=\"images/icon.jpg\"></a>\r\n				<ul class=\"title\">\r\n					<li class=\"item-main\"><a href=\"#!/welcome\">首页</a></li>\r\n					<li class=\"item-about\"><a href=\"#!/about\">关于</a></li>\r\n				</ul>\r\n				<div class=\"login\">\r\n					<span><i class=\"mdi mdi-account\"></i>登录<span>\r\n				</div>\r\n			</div>\r\n		</header>\r\n		<div class=\"body\">\r\n		</div>\r\n		<footer>\r\n			Simple is Everything.\r\n			<span>PennyRen</span>\r\n			<span>©2016 All Rights Reserved.</span>\r\n		</footer>\r\n	</div>";
+},"useData":true});
+
+Handlebars.templates['MainView-welcome']  = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"description\">\r\n		<h1>The Best <b>Note Platform</b> with Markdown</h1>\r\n	</div>\r\n	<div class=\"pen\">\r\n		<img src=\"images/pen.png\">\r\n	</div>\r\n	<div class=\"introduce\">\r\n		<a href=\"javascript:;\" data-tip=\"写笔记，wenote是个不错的选择?\" class=\"tip\">\r\n			<i class=\"mdi mdi-heart-outline\"></i>\r\n			<span>为何wenote</span>\r\n		</a>\r\n	</div>";
+},"useData":true});
+
+Handlebars.templates['MainView-about']  = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<section class=\"about\">\r\n		<ul>\r\n			<li>追求极简是我们的宗旨。wenote让一切都变得那么简单。</li>\r\n			<li>在前端我们用brite.js来管理组件，handelbars.js作为模板引擎，组件化是web开发的趋势。SPA页面让用户体验更佳。</li>\r\n			<li>后台使用高性能的node.js作为支撑，数据库使用mangodb。wenote让一切变得那么快速。</li>\r\n			<li>使用markdown记录身边点滴，wenote让一切都变得那么轻松。</li>\r\n			<li>那么让我们开始愉快写作之旅吧~</li>\r\n		</ul>\r\n	</section>";
 },"useData":true});
 
 
