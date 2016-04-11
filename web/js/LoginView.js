@@ -40,6 +40,8 @@
             },
             "click; .btn": function (e) {
                 var view = this;
+                brite.display("Toast", "body", {message: "test toast"});
+                return;
                 view.$el.bRemove();
                 app.router.set('!/u/note');
             }
