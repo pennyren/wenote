@@ -39,9 +39,15 @@
     height: 100%;
     z-index: 9999;
     background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
     .content {
-    	background: #fff;
+        background: #fff;
     	-webkit-font-smoothing: antialiased;
+        transition: transform 500ms ease-in-out;
+        &.scale {
+            transform: scale(1.1);
+        }
     }
 }
 /*form group*/

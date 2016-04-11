@@ -8,11 +8,16 @@
             view.$content = view.$el.find(".content");
             view.height = 270;
             view.heighter = view.height + 66;
+            view.$el.addClass('opacity');
+            view.$content.addClass('scale');
         },
         events: {
         	"click; .close": function (e) {
                 var view = this;
-                view.$el.bRemove();
+                view.$el.removeClass('opacity');
+                setTimeout(function() {
+                    view.$el.bRemove();
+                }, 500);
             },
             "click; .swap": function (e) {
                 var view = this;
