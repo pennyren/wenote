@@ -46,10 +46,12 @@
             "click; .btn": function (e) {
                 var view = this;
                 var $cur = $(e.currentTarget);
-                if (app.validate(view.$content)) {
+                if (!app.validate(view.$content)) {
                     return;
                 }
-                var props = app.getPropsFromInputs(view.$content);
+                var props = app.getPropsFromeInputs(view.$content);
+                console.log(props);
+                return;
                 if ($cur.hasClass('singin')) {
                     app.doPost('/singin', props);
                 } else {
@@ -58,7 +60,6 @@
                         app.router.set('!/u/note');
                     });
                 }
-                
             }
         }
 	});
