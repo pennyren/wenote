@@ -25,10 +25,10 @@
                 var $content
                 var $swapWrapper = $(e.currentTarget).parent();
                 var $confirm = view.$el.find(".form-group").eq(2);
-                if ($btn.hasClass("login")) {
+                if ($btn.hasClass("singin")) {
                     setTimeout(function () {
                         $confirm.removeClass("hidden");
-                        $btn.removeClass("login").addClass("register");
+                        $btn.removeClass("singin").addClass("register");
                         $btn.text("注册");
                         $swapWrapper.html("已有账号? <span class='swap'>点击登录</span>");
                     }, 400);
@@ -36,7 +36,7 @@
                 } else {
                     setTimeout(function () {
                         $confirm.addClass("hidden");
-                        $btn.removeClass("register").addClass("login");
+                        $btn.removeClass("register").addClass("singin");
                         $btn.text("登录");
                         $swapWrapper.html("木有账号? <span class='swap'>点击注册</span>");
                     }, 400);
@@ -45,10 +45,20 @@
             },
             "click; .btn": function (e) {
                 var view = this;
-                brite.display("Toast", "body", {message: "test toast"});
-                return;
-                view.$el.bRemove();
-                app.router.set('!/u/note');
+                var $cur = $(e.currentTarget);
+                if (app.validate(view.$content)) {
+                    return;
+                }
+                var props = app.getPropsFromInputs(view.$content);
+                if ($cur.hasClass('singin')) {
+                    app.doPost('/singin', props);
+                } else {
+                    app.doPost('/register', props).done(function(result){
+                        view.$el.bRemove();
+                        app.router.set('!/u/note');
+                    });
+                }
+                
             }
         }
 	});
