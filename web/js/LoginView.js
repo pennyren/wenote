@@ -50,17 +50,23 @@
                     return;
                 }
                 var props = app.getPropsFromeInputs(view.$content);
-                console.log(props);
-                return;
                 if ($cur.hasClass('singin')) {
-                    app.doPost('/singin', props);
+                    app.doPost('/singin', props).done(function(reulst) {
+                        setCookieAndGoNoteView(reulst);
+                    });
                 } else {
                     app.doPost('/register', props).done(function(result){
-                        view.$el.bRemove();
-                        app.router.set('!/u/note');
+                        setCookieAndGoNoteView(reulst);
                     });
                 }
             }
         }
 	});
+
+    function setCookieAndGoNoteView(reulst) {
+        app.cookie.set();
+        view.$el.bRemove();
+        app.router.set('/u/note');
+    }
+
 })();

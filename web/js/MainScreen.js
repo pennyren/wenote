@@ -5,7 +5,7 @@
 	   },
         postDisplay: function(){
       		var view = this;
-            app.router.set('!/welcome');
+            app.router.set('/welcome');
         },
         docEvents: {
     	   "CTX_CHANGE": function (e) {

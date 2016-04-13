@@ -20,7 +20,7 @@ var app = app || {};
 			return routerInfo;
 		},
 		set: function (ctx) {
-			window.location.hash = ctx;
+			window.location.hash = '!' + ctx;
 		},
 		init: function () {
 			routerInfo = parseCtx();
