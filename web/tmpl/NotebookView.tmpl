@@ -10,26 +10,21 @@
 			</div>
 			
 			<ul class="notebook-wrap">
-				<li class="item">
-					<div class="book">
-						<div class="book-name">Android</div>
-						<div class="count"><span>3</span>条笔记</div>
-					</div>
-					<div class="icon-wrap tip" data-tip="删除笔记本"><span class="mdi mdi-delete"></span></div>
-					<div class="icon-wrap tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-
-				</li>
-				<li class="item">
-					<div class="book">
-						<div class="book-name">Android</div>
-						<div class="count"><span>3</span>条笔记</div>
-					</div>
-					<div class="icon-wrap tip" data-tip="删除笔记本"><span class="mdi mdi-delete"></span></div>
-					<div class="icon-wrap tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-				</li>
 				
 			</ul>
 		</aside>
 		<div class="bkg"></div>
 	</div>
+</script>
+<script id="NotebookView-book" type="text/html">
+	{{each book}}
+		<li class="item">
+			<div class="book">
+				<div class="book-name">{{name}}</div>
+				<div class="count"><span>{{count}}</span>条笔记</div>
+			</div>
+			<div class="icon-wrap tip" data-tip="删除笔记本"><span class="mdi mdi-delete"></span></div>
+			<div class="icon-wrap tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
+		</li>
+	{{/each}}
 </script>
