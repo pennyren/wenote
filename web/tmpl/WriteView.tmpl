@@ -32,8 +32,6 @@
 									<span>创建新笔记本</span>
 								</div>
 							</li>
-							<li><div>Android</div></li>
-							<li><div>CSS</div></li>
 						</ul>
 					</div>
 			</div>
@@ -44,4 +42,9 @@
   			<div class="generate" id="preview"></div>
 		</section>
 	</div>
+</script>
+<script id="WriteView-books" type="text/html">
+	{{each books}}
+		<li><div>{{name}}</div></li>
+	{{/each}}
 </script>
