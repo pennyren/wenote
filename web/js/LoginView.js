@@ -51,11 +51,14 @@
                 }
                 var props = app.getPropsFromeInputs(view.$content);
                 if ($cur.hasClass('singin')) {
-                    app.doPost('/singin', props).done(function(reulst) {
+                    app.doPost('/singin', props).done(function(result) {
+                        console.log(result);
+                        return;
                         setCookieAndGoNoteView(reulst);
                     });
                 } else {
                     app.doPost('/register', props).done(function(result){
+                        return;
                         setCookieAndGoNoteView(reulst);
                     });
                 }
