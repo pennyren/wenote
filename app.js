@@ -1,9 +1,11 @@
 var express = require('express');
 var app = express();
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var startRoutes = require('./lib/route/index');
 app.set('port', process.env.PROT || 8080);
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
