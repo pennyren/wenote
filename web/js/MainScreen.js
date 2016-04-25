@@ -3,7 +3,7 @@
 		create: function(){
 			return render("MainScreen");
 	   },
-        postDisplay: function(){
+        postDisplay: function () {
       		var view = this;
             app.router.set('/welcome');
         },
@@ -14,8 +14,20 @@
                 var viewName = viewNameByPath[rootPath];
                 if (view.currentViewName != viewName) {
                     view.currentViewName = viewName;
-                    view.$el.bEmpty();
-                    brite.display(viewName, ".MainScreen");
+                    if (viewName == 'NoteView') {
+                        app.doGet('/checkToken', function (result) {
+                            console.log(result);
+                            if (result.success) {
+                                view.$el.bEmpty();
+                                brite.display(viewName, ".MainScreen");
+                            } else {
+                                app.router.set('/welcome');
+                            }
+                        });
+                    } else {
+                        view.$el.bEmpty();
+                        brite.display(viewName, ".MainScreen");
+                    }
                 }
                 if(rootPath != 'u') {
                     view.$el.trigger('SCREEN_CHANGE');

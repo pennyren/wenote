@@ -33,7 +33,6 @@ var app = app || {};
 			var cookies = document.cookie ? document.cookie.split('; ') : [];
 			var cookieVal;
 			var i = cookies.length;
-			if (!i) return null;
 			while (i--) {
 				var cookie = cookies[i];
 				if (cookie.indexOf(key) !== -1) {

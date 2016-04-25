@@ -52,24 +52,28 @@
                 var props = app.getPropsFromeInputs(view.$content);
                 if ($cur.hasClass('singin')) {
                     app.doPost('/singin', props).done(function(result) {
-                        console.log(result);
-                        return;
-                        setCookieAndGoNoteView(reulst);
+                        checkResult.call(view, result, true);
                     });
                 } else {
                     app.doPost('/register', props).done(function(result){
-                        return;
-                        setCookieAndGoNoteView(reulst);
+                        checkResult.call(view, result, false);
                     });
                 }
             }
         }
 	});
 
-    function setCookieAndGoNoteView(reulst) {
-        app.cookie.set();
-        view.$el.bRemove();
-        app.router.set('/u/note');
+    function checkResult(result, isSingin) {
+        var view = this;
+        if (result.success) {
+            view.$el.bRemove();
+            app.router.set('/u');
+        } else {
+            if (isSingin) {
+                brite.display('Toast', 'body', {message: '用户名或密码错误'});
+            } else {
+                brite.display('Toast', 'body', {message: '用户名已存在'});
+            }
+        }
     }
-
 })();
