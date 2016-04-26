@@ -15,8 +15,7 @@
                 if (view.currentViewName != viewName) {
                     view.currentViewName = viewName;
                     if (viewName == 'NoteView') {
-                        app.doGet('/checkToken', function (result) {
-                            console.log(result);
+                       app.doGet('/checkToken').done(function (result) {
                             if (result.success) {
                                 view.$el.bEmpty();
                                 brite.display(viewName, ".MainScreen");
@@ -24,6 +23,7 @@
                                 app.router.set('/welcome');
                             }
                         });
+                        
                     } else {
                         view.$el.bEmpty();
                         brite.display(viewName, ".MainScreen");
