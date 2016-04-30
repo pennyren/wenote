@@ -25,10 +25,10 @@
                 var $content
                 var $swapWrapper = $(e.currentTarget).parent();
                 var $confirm = view.$el.find(".form-group").eq(2);
-                if ($btn.hasClass("singin")) {
+                if ($btn.hasClass("signin")) {
                     setTimeout(function () {
                         $confirm.removeClass("hidden");
-                        $btn.removeClass("singin").addClass("register");
+                        $btn.removeClass("signin").addClass("register");
                         $btn.text("注册");
                         $swapWrapper.html("已有账号? <span class='swap'>点击登录</span>");
                     }, 400);
@@ -36,7 +36,7 @@
                 } else {
                     setTimeout(function () {
                         $confirm.addClass("hidden");
-                        $btn.removeClass("register").addClass("singin");
+                        $btn.removeClass("register").addClass("signin");
                         $btn.text("登录");
                         $swapWrapper.html("木有账号? <span class='swap'>点击注册</span>");
                     }, 400);
@@ -50,8 +50,8 @@
                     return;
                 }
                 var props = app.getPropsFromeInputs(view.$content);
-                if ($cur.hasClass('singin')) {
-                    app.doPost('/singin', props).done(function(result) {
+                if ($cur.hasClass('signin')) {
+                    app.doPost('/signin', props).done(function(result) {
                         checkResult.call(view, result, true);
                     });
                 } else {

@@ -3,14 +3,15 @@ var app = app || {};
 	var _defaultValidators = {
 		required: {
 			message: '不能为空',
-			validator: function (val) {
+			validator: function (val, $cur) {
 				return val.trim().length > 0;
 			}
 		},
 		equalto: {
-			message: '确认密码不匹配',
-			validator: function (val) {
-				
+			message: '不匹配密码',
+			validator: function (val, $cur) {
+				var prevVal = $cur.closest('.form-group').prev().find('input').val();
+				return prevVal == val ? true : false;
 			}
 		}
 	};
@@ -46,22 +47,22 @@ var app = app || {};
 			var $cur = $(this);
 			var rulekey = $cur.attr('data-validation_rule');
 			var ruleval = $cur.val();
-			var prop = '';
-			if (rulekey != 'equalto') {
-				prop = $cur.attr('name');
+			var keys = rulekey.split(' ');
+			var prop = $cur.attr('name');
+			for (var i = 0; i < keys.length; i++) {
+				if (!getCurrentValidationResult(keys[i], ruleval, prop, $cur)) {
+					isMatch = false;
+					break;
+				}
 			}
-			if (!getCurrentValidationResult(rulekey, ruleval, prop)) {
-				isMatch = false;
-				return isMatch;
-			}
-			
+			return isMatch;
 		});
 		return isMatch;
 	}
 
-	function getCurrentValidationResult(key, val, prop) {
+	function getCurrentValidationResult(key, val, prop, $cur) {
 		var rule = _defaultValidators[key];
-		if (!rule.validator(val)) {
+		if (!rule.validator(val, $cur)) {
 			brite.display('Toast', 'body', {message: _cnMap[prop] + rule.message});
 			return false;
 		} else {

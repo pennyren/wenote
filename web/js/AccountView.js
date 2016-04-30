@@ -10,7 +10,16 @@
             }, 100);
         },
         events: {
-        	
+        	"click; .signout": function (e) {
+                var view = this;
+                app.doPost('/signout').done(function (result) {
+                    if (result.success) {
+                        view.$el.bRemove();
+                        app.cookie.clear();
+                        app.router.set('/welcome');
+                    }
+                });
+            }
         },
         docEvents: {
            "REMOVE_ACCOUNT_VIEW": function (e) {
