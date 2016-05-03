@@ -10,66 +10,6 @@
 		</header>
 		<section>
 			<ul class="list-wrap">
-				<li class="item checked">
-					<div class="title clearfix">
-						<h3 class="textfix">javascript基本概念</h3>
-						<div class="setting">
-							<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
-							<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-							
-						</div>
-					</div>
-					<div class="time">15/9/17</div>
-					<p class="overview multiline">ECMA-262通过叫ECMAScript的“伪语言”来描述了JavaScript的所有基本概念及最基本的工作原理。描述的内容涉及这门语言的语法</p>
-				</li>
-				<li class="item">
-					<div class="title clearfix">
-						<h3 class="textfix">javascript基本概念</h3>
-						<div class="setting">
-							<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
-							<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-							
-						</div>
-					</div>
-					<div class="time">15/9/17</div>
-					<p class="overview multiline">ECMA-262通过叫ECMAScript的“伪语言”来描述了JavaScript的所有基本概念及最基本的工作原理。描述的内容涉及这门语言的语法</p>
-				</li>
-				<li class="item">
-					<div class="title clearfix">
-						<h3 class="textfix">javascript基本概念</h3>
-						<div class="setting">
-							<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
-							<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-							
-						</div>
-					</div>
-					<div class="time">15/9/17</div>
-					<p class="overview">ECMA-262通过叫ECMAScript的“伪语言”来描述了JavaScript的所有基本概念及最基本的工作原理。描述的内容涉及这门语言的语法</p>
-				</li>
-				<li class="item">
-					<div class="title clearfix">
-						<h3 class="textfix">javascript基本概念</h3>
-						<div class="setting">
-							<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
-							<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-							
-						</div>
-					</div>
-					<div class="time">15/9/17</div>
-					<p class="overview">ECMA-262通过叫ECMAScript的“伪语言”来描述了JavaScript的所有基本概念及最基本的工作原理。描述的内容涉及这门语言的语法</p>
-				</li>
-				<li class="item">
-					<div class="title clearfix">
-						<h3 class="textfix">javascript基本概念</h3>
-						<div class="setting">
-							<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
-							<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-							
-						</div>
-					</div>
-					<div class="time">15/9/17</div>
-					<p class="overview">ECMA-262通过叫ECMAScript的“伪语言”来描述了JavaScript的所有基本概念及最基本的工作原理。描述的内容涉及这门语言的语法</p>
-				</li>
 			</ul>
 		</section>
 	</div>
@@ -78,15 +18,17 @@
 	{{#each note}}
 	<li class="item">
 		<div class="title clearfix">
-			<h3 class="textfix">{{title}}</h3>
+			<h3 class="textfix" data-id="{{_id}}">{{name}}</h3>
 			<div class="setting">
 				<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
 				<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-				
 			</div>
 		</div>
 		<div class="time">{{time}}</div>
 		<p class="overview">{{overview}}</p>
 	</li>
 	{{/each}}
+</script>
+<script id="NoteList-empty" type="text/html">
+	<div></div>
 </script>
