@@ -63,13 +63,18 @@
         }
 	});
 
-    function checkResult(result, isSingin) {
+    function checkResult(data, isSignin) {
         var view = this;
-        if (result.success) {
+        if (data.success) {
+            var userInfo = {
+                uid: data.result._id,
+                user: data.result.username
+            };
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
             view.$el.bRemove();
             app.router.set('/u');
         } else {
-            if (isSingin) {
+            if (isSignin) {
                 brite.display('Toast', 'body', {message: '用户名或密码错误'});
             } else {
                 brite.display('Toast', 'body', {message: '用户名已存在'});
