@@ -1,19 +1,35 @@
 (function() {
 	brite.registerView("NoteList",{
 		create: function() {
-            var result = null;
-            app.doPost('/getNoteCount', {uid: app.getUserId()}).done(function (data) {
-                result = data.result;
-            });
-            return render("NoteList", result);
+            return render("NoteList");
 		},
         postDisplay: function() {
       		var view = this;
+            var dfd = $.Deferred();
             view.$title = view.$el.find('header .title');
             view.$searchCtx = view.$el.find('.search-ctx');
             view.$delete = view.$el.find('.search-ctx .delete');
             view.$input = view.$el.find('.search-ctx input');
-            
+            view.$count = view.$el.find('.count span');
+            view.$wrap = view.$el.find('.list-wrap');
+            view.uid = app.getUserId();
+            app.doPost('/getNoteCount', {uid: view.uid}).done(function (data) {
+                var count = data.result.count;
+                view.$count.text(count);
+                if (count == 0) {
+                    view.$wrap.append(render('NodeList-empty'));
+                } else {
+                    dfd.resolve();
+                }
+            });
+            dfd.done(function () {
+                app.doPost('/getNoteList', {uid: view.uid}).done(function (data) {
+                    var result = data.result;
+                    var notes = render('NoteList-item', {note: result});
+                    view.$wrap.append(notes);
+                    view.$wrap.find('li:first-child').addClass('checked');
+                });
+            });
         },
         events: {
         	"keyup; .search-ctx input": function (e) {

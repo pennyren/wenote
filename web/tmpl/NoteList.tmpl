@@ -6,15 +6,10 @@
 				<span class="mdi mdi-close-circle delete hidden"></span>
 			</div>
 			<h2 class="title">笔记</h2>
-			<div class="count"><span>{{count}}</span>条笔记</div>
+			<div class="count"><span></span>条笔记</div>
 		</header>
 		<section>
 			<ul class="list-wrap">
-				{{#unless count}}
-				<div class="note-empty">
-					开启写作之旅吧~
-				</div>
-				{{/unless}}
 			</ul>
 		</section>
 	</div>
@@ -33,4 +28,9 @@
 		<p class="overview">{{overview}}</p>
 	</li>
 	{{/each}}
+</script>
+<script id="NodeList-empty" type="text/html">
+	<div class="note-empty">
+		^_^开启写作之旅吧~
+	</div>
 </script>

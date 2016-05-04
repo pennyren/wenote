@@ -1,21 +1,22 @@
 {
-	"name": "wenote",
-	"description": "The best note platform with markdown",
-	"version": "1.0.0",
-	"author": "pennyren",
-	"main": "gulpfile.js",
-	"dependencies": {
-		"body-parser": "^1.14.0",
-		"crypto": "0.0.3",
-		"express": "^4.13.3",
-		"mongoose": "^4.1.8",
-		"cookie-parser": "1.4.1"
-	},
-	"devDependencies": {
-		"del": "^2.0.1",
-		"hbsp": "^0.1.0",
-    	"gulp": "^3.9.0",
-	    "gulp-less": "^3.0.3",
-	    "gulp-concat": "^2.6.0"
-	}
+  "name": "wenote",
+  "description": "The best note platform with markdown",
+  "version": "1.0.0",
+  "author": "pennyren",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "cookie-parser": "1.4.1",
+    "crypto": "0.0.3",
+    "express": "^4.13.3",
+    "moment": "^2.13.0",
+    "mongoose": "^4.1.8"
+  },
+  "devDependencies": {
+    "del": "^2.0.1",
+    "hbsp": "^0.1.0",
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-concat": "^2.6.0"
+  }
 }
