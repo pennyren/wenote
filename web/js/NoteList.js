@@ -1,9 +1,8 @@
 (function() {
 	brite.registerView("NoteList",{
 		create: function() {
-            var userInfo = JSON.parse(localStorage.userInfo);
             var result = null;
-            app.doPost('/getNoteCount', {uid: userInfo.uid}).done(function (data) {
+            app.doPost('/getNoteCount', {uid: app.getUserId()}).done(function (data) {
                 result = data.result;
             });
             return render("NoteList", result);

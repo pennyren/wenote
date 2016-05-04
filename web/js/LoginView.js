@@ -66,11 +66,7 @@
     function checkResult(data, isSignin) {
         var view = this;
         if (data.success) {
-            var userInfo = {
-                uid: data.result._id,
-                user: data.result.username
-            };
-            localStorage.setItem('userInfo', JSON.stringify(userInfo));
+            app.saveUserInfo(data);
             view.$el.bRemove();
             app.router.set('/u');
         } else {
