@@ -16,9 +16,9 @@
 </script>
 <script id="NoteList-item" type="text/html">
 	{{#each note}}
-	<li class="item">
+	<li class="item" data-id="{{_id}}">
 		<div class="title clearfix">
-			<h3 class="textfix" data-id="{{_id}}">{{name}}</h3>
+			<h3 class="textfix">{{name}}</h3>
 			<div class="setting">
 				<div class="tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
 				<div class="tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>

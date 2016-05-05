@@ -25,6 +25,11 @@
             dfd.done(function () {
                 app.doPost('/getNoteList', {uid: view.uid}).done(function (data) {
                     var result = data.result;
+                    var i = result.length;
+                    while (i--) {
+                        var cur = result[i];
+                        cur.time = moment(cur.time).format('YYYY/MM/DD');
+                    }
                     var notes = render('NoteList-item', {note: result});
                     view.$wrap.append(notes);
                     view.$wrap.find('li:first-child').addClass('checked');
@@ -45,6 +50,19 @@
                 var view = this;
                 view.$input.val('');
                 view.$delete.addClass('hidden');
+            },
+            "click; .item": function (e) {
+                var view = this;
+                var $items = view.$el.find('.item');
+                var $cur = $(e.currentTarget);
+                var id = $cur.attr('data-id');
+                $items.removeClass('checked');
+                $cur.addClass('checked');
+                console.log(id);
+                return;
+                app.doPost('/getNoteContent', {_id: id}).done(function (data) {
+
+                });
             }
         },
         docEvents: {
