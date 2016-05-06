@@ -31,7 +31,7 @@
                     });
                 } else {
                     app.doPost('/createNotebook', props).done(function (result) {
-                        
+                        console.log(result);
                     });
                 }
             }

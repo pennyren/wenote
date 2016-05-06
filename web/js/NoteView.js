@@ -7,8 +7,9 @@
       		var view = this;
             view.$sidebar = view.$el.find('.sidebar');
             brite.display("AsideView", view.$el.find(".sidebar"));
-            brite.display("NoteList", view.$el.find(".list"));
-            brite.display("WriteView", view.$el.find(".write"));
+            brite.display("NoteList", view.$el.find(".list")).done(function () {
+                brite.display("WriteView", view.$el.find(".write"));
+            });
         },
         docEvents: {
             "MAKE_VIEW_EXPAND": function (e) {
