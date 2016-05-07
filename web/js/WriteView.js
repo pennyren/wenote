@@ -8,7 +8,10 @@
             view.$editor = view.$el.find(".editor textarea");
             view.$generate = view.$el.find(".editor .generate");
             view.$noteBook = view.$el.find('.book-wrap');
-            renderMarkdown.call(view, view.$editor, view.$generate);
+            view.$title = view.$el.find('.note-title');
+            view.$bookname = view.$el.find('.select-wrap .book-name');
+            view.$star =  view.$el.find('.handle .mdi-star');
+            view.$el.trigger('GET_CHECKED_NOTE');
         },
         events: {
         	"input; textarea": function (e) {
@@ -33,6 +36,26 @@
                 } else {
                      view.$el.trigger('VIEW_EXPAND_BACK');
                 }
+            }
+        },
+        docEvents: {
+            "GET_NOTE_CONTENT": function (e, data) {
+                var view = this;
+                var data = data || {};
+                var id = data.id;
+                app.doPost('/getNoteContent', {_id: id}).done(function (data) {
+                    var result = data.result;
+                    view.$editor.val(reuslt.content);
+                    view.$title.val(reuslt.name);
+                    view.$bookname.text(result.bookname || '移动笔记');
+                    if (result.start) {
+                        view.$star.addClass('star');
+                    } else {
+                        view.$star.removeClass('star');
+                    }
+                    renderMarkdown.call(view, view.$editor, view.$generate);
+                });
+                
             }
         }
     });

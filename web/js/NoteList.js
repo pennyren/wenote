@@ -58,11 +58,7 @@
                 var id = $cur.attr('data-id');
                 $items.removeClass('checked');
                 $cur.addClass('checked');
-                console.log(id);
-                return;
-                app.doPost('/getNoteContent', {_id: id}).done(function (data) {
-
-                });
+                view.$el.trigger('GET_CHECKED_NOTE');
             }
         },
         docEvents: {
@@ -76,6 +72,12 @@
                 view.$delete.addClass('hidden');
                 view.$title.removeClass('hidden');
                 view.$searchCtx.addClass('hidden');
+            },
+            "GET_CHECKED_NOTE": function (e) {
+                var view = this;
+                var $checkedItem = view.$el.find('.list-wrap .checked');
+                var id = $checkedItem.attr('data-id');
+                view.$el.trigger('GET_NOTE_CONTENT', {id: id});
             }
         }
 	});
