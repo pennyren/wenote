@@ -25,7 +25,7 @@
             "click; .plus": function (e) {
                 var view = this;
                 view.$noteBook.toggleClass('hidden');
-                brite.display("CreateView", "body", {note: false});
+                brite.display("CreateView", "body", {note: false, aside: false});
             },
             "click; .expand": function (e) {
                 var view = this;

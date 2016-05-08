@@ -4,8 +4,10 @@
             var data = data || {};
             return render("CreateView", data);
 	    },
-        postDisplay: function() {
+        postDisplay: function(data) {
       		var view = this;
+            var data = data || {};
+            view.aside = data.aside;
             setTimeout(function () {
                 view.$el.addClass("make-opacity");
             }, 100);
@@ -24,14 +26,22 @@
                     return;
                 }
                 var props = app.getPropsFromeInputs(view.$el);
-                props.uid = JSON.parse(localStorage.userInfo).uid;
+                props.uid = app.getUserId();
                 if (view.$el.hasClass('note')) {
                     app.doPost('/createNote', props).done(function (result) {
-                        console.log(result);
+                        if (result.success) {
+
+                        }
                     });
                 } else {
                     app.doPost('/createNotebook', props).done(function (result) {
-                        console.log(result);
+                        if (result.success) {
+                            if (view.aside) {
+
+                            } else {
+                                
+                            }
+                        }
                     });
                 }
             }

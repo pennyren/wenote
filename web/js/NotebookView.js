@@ -13,7 +13,7 @@
         events: {
             "click; .plus": function (e) {
                 var view = this;
-                brite.display("CreateView", "body", {note: false});
+                brite.display("CreateView", "body", {note: false, aside: true});
             }
         },
         docEvents: {
