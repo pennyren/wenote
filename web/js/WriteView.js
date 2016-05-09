@@ -56,6 +56,15 @@
                     renderMarkdown.call(view, view.$editor, view.$generate);
                 });
                 
+            },
+            "UPDATE_NOTE_CONTENT": function (e, data) {
+                var view = this;
+                var data = data || {};
+                var result = data.note;
+                view.$editor.val('');
+                view.$title.val(result.name);
+                view.$bookname.text('移动笔记');
+                renderMarkdown.call(view, view.$editor, view.$generate);
             }
         }
     });
