@@ -65,6 +65,8 @@
                 var $note = $(e.currentTarget).closest('.item');
                 var isChecked = $note.hasClass('checked');
                 var id = $note.attr('data-id');
+
+                console.log(isChecked);
                 app.doPost('/deleteNote', {id: id}).done(function (data) {
                     if (data.success) {
                         $note.bRemove();
@@ -72,14 +74,12 @@
                         view.$count.text(--count);
                         if (count == 0) {
                             view.$wrap.append(render('NodeList-empty'));
-                        }
-                        return;
-                        if (isChecked) {
-                            var $items = view.$wrap.find('.item');
-                            if ($items.length == 0) {
-                                view.$el.trigger('CLEAR_NOTE_CONTENT');
-                            } else {
-                                view.$el.trigger('GET_NOTE_CONTENT', {id: $items.eq(0).attr('data-id')});
+                            view.$el.trigger('UPDATE_NOTE_CONTENT', {note: null});
+                        } else {
+                            if (isChecked) {
+                                var $item = view.$wrap.find('.item').eq(0);
+                                $item.addClass('checked');
+                                view.$el.trigger('GET_NOTE_CONTENT', {id: $item.attr('data-id')});
                             }
                         }
                     }
@@ -101,28 +101,26 @@
             "GET_CHECKED_NOTE": function (e) {
                 var view = this;
                 var $checkedItem = view.$el.find('.list-wrap .checked');
-                var id = $checkedItem.attr('data-id');
-                view.$el.trigger('GET_NOTE_CONTENT', {id: id});
+                view.$el.trigger('GET_NOTE_CONTENT', {id: $checkedItem.attr('data-id')});
             },
             "RENDER_CREATE_NOTE": function (e, data) {
                 var view = this;
-                var data = data || {};
-                var notes = [];
-                notes.push(data.note);
+                var result = data.note || {};
+                var notes = [].push(result);
                 var note = render('NoteList-item', {note: notes});
-                var $emptyNotes = view.$wrap.find('.note-empty');
-                if ($emptyNotes.length == 0) {
+                var hasEmpty = view.$wrap.find('.note-empty');
+                if (!hasEmpty) {
                     view.$wrap.prepend(note);
                 } else {
                     view.$wrap.bEmpty();
                     view.$wrap.append(note);
                 }
                 var $noteList = view.$wrap.find('li');
-                var count = view.$count.text()*1;
                 $noteList.removeClass('checked');
                 $noteList.eq(0).addClass('checked');
+                var count = view.$count.text()*1;
                 view.$count.text(++count);
-                view.$el.trigger('UPDATE_NOTE_CONTENT', {note: data.note});
+                view.$el.trigger('UPDATE_NOTE_CONTENT', {note: result});
             }
         }
 	});

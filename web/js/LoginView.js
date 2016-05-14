@@ -22,7 +22,6 @@
             "click; .swap": function (e) {
                 var view = this;
                 var $btn = view.$el.find(".btn");
-                var $content
                 var $swapWrapper = $(e.currentTarget).parent();
                 var $confirm = view.$el.find(".form-group").eq(2);
                 if ($btn.hasClass("signin")) {

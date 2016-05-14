@@ -41,12 +41,11 @@
         docEvents: {
             "GET_NOTE_CONTENT": function (e, data) {
                 var view = this;
-                var data = data || {};
-                var id = data.id;
-                app.doPost('/getNoteContent', {_id: id}).done(function (data) {
+                var result = data || {};
+                app.doPost('/getNoteContent', {_id: result.id}).done(function (data) {
                     var result = data.result;
-                    view.$editor.val(reuslt.content);
-                    view.$title.val(reuslt.name);
+                    view.$editor.val(result.content);
+                    view.$title.val(result.name);
                     view.$bookname.text(result.bookname || '移动笔记');
                     if (result.start) {
                         view.$star.addClass('star');
@@ -59,12 +58,17 @@
             },
             "UPDATE_NOTE_CONTENT": function (e, data) {
                 var view = this;
-                var data = data || {};
-                var result = data.note;
+                var result = data.note || {};
+                var name = result.name || '';
                 view.$editor.val('');
-                view.$title.val(result.name);
+                view.$title.val(name);
                 view.$bookname.text('移动笔记');
                 renderMarkdown.call(view, view.$editor, view.$generate);
+            },
+            "WRITE_NOTEBOOK_UPDATE": function (e, data) {
+                var view = this;
+                var result = data.notebook || {};
+                view.$bookname.text(result.name);
             }
         }
     });

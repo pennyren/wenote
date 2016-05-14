@@ -1,12 +1,12 @@
 (function() {
 	brite.registerView("CreateView",{
 		create: function(data) {
-            var data = data || {};
+            data = data || {};
             return render("CreateView", data);
 	    },
         postDisplay: function(data) {
       		var view = this;
-            var data = data || {};
+            data = data || {};
             view.aside = data.aside;
             setTimeout(function () {
                 view.$el.addClass("make-opacity");
@@ -37,9 +37,9 @@
                     app.doPost('/createNotebook', props).done(function (result) {
                         if (result.success) {
                             if (view.aside) {
-
+                                view.$el.trigger('ASIDE_NOTEBOOK_UPDATE', {notebook: null});
                             } else {
-                                
+                                view.$el.trigger('WRITE_NOTEBOOK_UPDATE', {notebook: null});
                             }
                         }
                     });

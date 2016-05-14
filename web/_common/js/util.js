@@ -3,7 +3,7 @@ var app = app || {};
 	app.getUserId = function () {
 		var userInfo = JSON.parse(localStorage.userInfo);
 		return userInfo.uid;
-	}
+	};
 
 	app.saveUserInfo = function (data) {
 		var userInfo = {
