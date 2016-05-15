@@ -4,7 +4,7 @@
 			<div class="operate-wrap clearfix">
 				<div class="handle">
 					<div class="operate tip" data-tip="添加快捷方式"><span class="mdi mdi-star"></span></div>
-					<div class="operate tip" data-tip="删除笔记"><span class="mdi mdi-delete"></span></div>
+					<div class="operate tip" data-tip="保存"><span class="mdi mdi-save"></span></div>
 				</div>
 				<div class="expand">
 					<div class="wrap">
@@ -26,7 +26,7 @@
 							<input type="text"></input>
 							<div class="search"><span class="mdi mdi-magnify"></span>查找笔记本</div>
 						</header>
-						<ul>
+						<ul class="book-list">
 							<li>
 								<div class="plus">
 									<span class="mdi mdi-library-plus"></span>
@@ -46,6 +46,6 @@
 </script>
 <script id="WriteView-books" type="text/html">
 	{{#each books}}
-		<li><div>{{name}}</div></li>
+		<li data-id="{{_id}}" class="book-item"><div>{{name}}</div></li>
 	{{/each}}
 </script>

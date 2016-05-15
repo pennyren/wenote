@@ -34,12 +34,13 @@
                         }
                     });
                 } else {
-                    app.doPost('/createNotebook', props).done(function (result) {
-                        if (result.success) {
+                    app.doPost('/createNotebook', props).done(function (data) {
+                        if (data.success) {
+                            view.$el.trigger('REMOVE_CREATE_VIEW');
                             if (view.aside) {
-                                view.$el.trigger('ASIDE_NOTEBOOK_UPDATE', {notebook: null});
+                                view.$el.trigger('ASIDE_NOTEBOOK_UPDATE', {notebook: data.result});
                             } else {
-                                view.$el.trigger('WRITE_NOTEBOOK_UPDATE', {notebook: null});
+                                view.$el.trigger('WRITE_NOTEBOOK_UPDATE', {notebook: data.result});
                             }
                         }
                     });

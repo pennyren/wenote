@@ -7,9 +7,7 @@
       		var view = this;
             view.$sidebar = view.$el.find('.sidebar');
             brite.display("AsideView", view.$el.find(".sidebar"));
-            brite.display("NoteList", view.$el.find(".list")).done(function () {
-                brite.display("WriteView", view.$el.find(".write"));
-            });
+            brite.display("NoteList", view.$el.find(".list"));
         },
         docEvents: {
             "MAKE_VIEW_EXPAND": function (e) {
@@ -23,6 +21,10 @@
                 setTimeout(function () {
                     view.$sidebar.removeClass('slow');
                 }, 200);
+            },
+            "DISPLAY_NOTEVIEW": function (e) {
+                var view = this;
+                brite.display("WriteView", view.$el.find(".write"));
             }
         }
 	});

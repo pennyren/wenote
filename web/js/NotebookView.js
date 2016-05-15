@@ -6,15 +6,34 @@
         postDisplay: function() {
             var view = this;
             view.$noteBooks = view.$el.find('.notebook-wrap');
-            setTimeout(function () {
-                view.$el.find(".bkg").addClass("set-opacity");
-                view.$el.find(".slide").addClass("slide-done");
-            }, 100);
+            view.$noteBooks.bEmpty();
+            app.doGet('/getNotebookList').done(function (data) {
+                var reuslt = data.result;
+                console.log(reuslt);
+                var books = render('NotebookView-book', {book: reuslt});
+                view.$noteBooks.append(books);
+                setTimeout(function () {
+                    view.$el.find(".bkg").addClass("set-opacity");
+                    view.$el.find(".slide").addClass("slide-done");
+                }, 100);
+            });
         },
         events: {
             "click; .plus": function (e) {
                 var view = this;
                 brite.display("CreateView", "body", {note: false, aside: true});
+            },
+            "click; .item .mdi-delete": function (e) {
+                var $item = $(e.currentTarget).closest('.item');
+                var id = $item.attr('data-id');
+                app.doPost('/deleteNotebook', {id: id}).done(function (data) {
+                    if (data.success) {
+                        $item.bRemove();
+                    }
+                });
+            },
+            "click; .item": function (e) {
+
             }
         },
         docEvents: {
@@ -29,8 +48,9 @@
             "ASIDE_NOTEBOOK_UPDATE": function (e, data) {
                 var view = this;
                 var result = data.notebook || {};
-                var notebooks = [].push(result);
-                var notebook = render('NotebookView-book', notebooks);
+                var notebooks = [];
+                notebooks.push(result);
+                var notebook = render('NotebookView-book', {book: notebooks});
                 view.$noteBooks.prepend(notebook);
             }
         }
