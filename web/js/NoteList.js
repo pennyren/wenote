@@ -66,23 +66,34 @@
                 var $note = $(e.currentTarget).closest('.item');
                 var isChecked = $note.hasClass('checked');
                 var id = $note.attr('data-id');
-                app.doPost('/deleteNote', {id: id}).done(function (data) {
+                var star = !!$note.attr('data-star');
+                var props = {
+                    id: id,
+                    star: star
+                };
+                app.doPost('/deleteNote', props).done(function (data) {
                     if (data.success) {
                         $note.bRemove();
                         var count = view.$count.text()*1;
                         view.$count.text(--count);
-                        if (count == 0) {
-                            view.$wrap.append(render('NodeList-empty'));
-                            view.$el.trigger('UPDATE_NOTE_CONTENT', {note: null});
-                        } else {
-                            if (isChecked) {
-                                var $item = view.$wrap.find('.item').eq(0);
+
+                        if (isChecked) {
+                            if (count == 0) {
+                                view.$wrap.append(render('NodeList-empty'));
+                                view.$el.trigger('UPDATE_NOTE_CONTENT', {note: null});
+                            } else {
+                                var $item = view.$wrap.find('.item:first-child');
                                 $item.addClass('checked');
                                 view.$el.trigger('GET_NOTE_CONTENT', {id: $item.attr('data-id')});
                             }
                         }
                     }
                 });
+            },
+            "click; .item .mdi-star": function (e) {
+                var view = this;
+                $(e.currentTarget).addClass('star');
+                view.$el.trigger('GET_CHECKED_NOTE', {isStar: true});
             }
         },
         docEvents: {
@@ -101,10 +112,20 @@
                 var view = this;
                 data = data || {};
                 var $checkedItem = view.$el.find('.list-wrap .checked');
-                console.log($checkedItem.length);
                 var id = $checkedItem.attr('data-id');
                 if (data.isUpdate) {
                     view.$el.trigger('SAVE_NOTE_CONTENT', {id: id});
+                } else if (data.isStar) {
+                    var props = {
+                        refId: id,
+                        starName: $checkedItem.find('.title .textfix').text(),
+                        isNote: true
+                    }
+                    app.doPost('/createStar', props).done(function (data) {
+                        if (data.success) {
+                            view.$el.trigger('MAKE_NOTE_STAR');
+                        }
+                    });
                 } else {
                     view.$el.trigger('GET_NOTE_CONTENT', {id: id});
                 }
@@ -134,11 +155,11 @@
                 data = data || {};
                 var bookId = data.id;
                 var noteId = view.$el.find('.list-wrap .checked').attr('data-id');
-                var condition = {
+                var props = {
                     noteId: noteId,
                     bookId: bookId
                 };
-                app.doPost('/changeNoteRef', condition);
+                app.doPost('/changeNoteRef', props);
             },
             "SET_NOTE_OVERVIEW": function (e, data) {
                 var view = this;

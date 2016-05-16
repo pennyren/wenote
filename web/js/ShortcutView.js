@@ -38,7 +38,7 @@
                     }
                 });
             }
-        }
+        },
         docEvents: {
         	"REMOVE_SHORTCUT_VIEW": function (e) {
                 var view = this;

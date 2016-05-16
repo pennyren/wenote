@@ -64,17 +64,18 @@
                 if (e.keyCode == 13) {
                     view.$el.trigger('UPDATE_NOTE_NAME', {name: name});
                 }
+            },
+            "click; .mdi-star": function (e) {
+                var view = this;
+                view.$el.trigger('GET_CHECKED_NOTE', {isStar: true});
             }
         },
         docEvents: {
             "GET_NOTE_CONTENT": function (e, data) {
                 var view = this;
                 var result = data || {};
-                console.log(data);
                 app.doPost('/getNoteContent', {id: result.id}).done(function (data) {
-                    console.log(data);
                     var result = data.result;
-                    console.log(result);
                     view.$editor.val(result.content);
                     view.$title.val(result.name);
                     view.$bookname.text(result.bookname || '移动笔记');
@@ -117,6 +118,10 @@
                         view.$el.trigger('SET_NOTE_OVERVIEW', {overview: result.overview});
                     }
                 });  
+            },
+            "MAKE_NOTE_STAR": function (e) {
+                var view = this;
+                view.$el.find('.mdi-star').addClass('star');
             }
         }
     });

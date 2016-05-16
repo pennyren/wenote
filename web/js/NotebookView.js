@@ -25,14 +25,34 @@
             "click; .item .mdi-delete": function (e) {
                 var $item = $(e.currentTarget).closest('.item');
                 var id = $item.attr('data-id');
-                app.doPost('/deleteNotebook', {id: id}).done(function (data) {
+                var star = !!$item.attr('data-star');
+                var props = {
+                    id: id,
+                    star: star
+                };
+                console.log(props);
+                app.doPost('/deleteNotebook', props).done(function (data) {
                     if (data.success) {
                         $item.bRemove();
                     }
                 });
             },
-            "click; .item": function (e) {
-
+            "click; .item .mdi-star": function (e) {
+                var view = this;
+                var $cur = $(e.currentTarget);
+                var $item = $cur.closest('.item');
+                var id = $item.attr('data-id');
+                var name = $item.find('.book-name').text();
+                var props = {
+                    refId: id,
+                    starName: name,
+                    isNote: false
+                };
+                app.doPost('/createStar', props).done(function (data) {
+                    if (data.success) {
+                        $cur.addClass('star');
+                    }
+                });
             }
         },
         docEvents: {
