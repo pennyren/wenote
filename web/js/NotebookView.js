@@ -9,7 +9,6 @@
             view.$noteBooks.bEmpty();
             app.doGet('/getNotebookList').done(function (data) {
                 var reuslt = data.result;
-                console.log(reuslt);
                 var books = render('NotebookView-book', {book: reuslt});
                 view.$noteBooks.append(books);
                 setTimeout(function () {

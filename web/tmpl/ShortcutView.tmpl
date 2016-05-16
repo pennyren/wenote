@@ -3,14 +3,6 @@
 		<aside class="slide">
 			<h1 class="title">快捷方式</h1>
 			<ul class="shortcut-wrap">
-				<li class="item">
-					<span class="mdi mdi-file-document"></span>javascript基本概念
-					<div class="delete tip" data-tip="删除快捷方式"><span class="mdi mdi-minus-outline"></span></div>
-				</li>
-				<li class="item">
-					<span class="mdi mdi-library-books"></span>android
-					<div class="delete tip" data-tip="删除快捷方式"><span class="mdi mdi-minus-outline"></span></div>
-				</li>
 				
 			</ul>
 		</aside>
@@ -20,9 +12,9 @@
 
 <script id="ShortcutView-item" type="text/html">
 	{{#each items}}
-		<li class="item">
-			<span class="mdi {{#if book}}mdi-library-books{{else}}mdi-file-document{{/if}}"></span>
-			{{name}}
+		<li class="item" data-id="{{_id}}" data-ref="{{refId}}" data-note="isNote">
+			<span class="mdi {{#if isNote}}mdi-file-document{{else}}mdi-library-books{{/if}}"></span>
+			{{starName}}
 			<div class="delete tip" data-tip="删除快捷方式"><span class="mdi mdi-minus-outline"></span></div>
 		</li>
 	{{/each}}
