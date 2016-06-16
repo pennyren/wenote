@@ -8,6 +8,8 @@
             view.$editor = view.$el.find(".editor textarea");
             view.$generate = view.$el.find(".editor .generate");
             view.$noteBook = view.$el.find('.book-wrap');
+            view.$search = view.$noteBook.find('.search');
+            view.$input = view.$noteBook.find('input');
             view.$title = view.$el.find('.note-title');
             view.$bookname = view.$el.find('.select-wrap .book-name');
             view.$star =  view.$el.find('.handle .mdi-star');
@@ -68,6 +70,19 @@
             "click; .mdi-star": function (e) {
                 var view = this;
                 view.$el.trigger('GET_CHECKED_NOTE', {isStar: true});
+            },
+            "click; .book-wrap .search": function (e) {
+                var view = this;
+                view.$input.focus();
+            },
+            "input; .book-wrap input": function (e) {
+                var view = this;
+                var content = $(e.currentTarget).val();
+                if (content.length != 0) {
+                    view.$search.hide();
+                } else {
+                    view.$search.show();
+                }
             }
         },
         docEvents: {

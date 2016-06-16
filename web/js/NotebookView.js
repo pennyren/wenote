@@ -6,6 +6,8 @@
         postDisplay: function() {
             var view = this;
             view.$noteBooks = view.$el.find('.notebook-wrap');
+            view.$input = view.$el.find('.form-group input');
+            view.$search = view.$el.find('.search');
             view.$noteBooks.bEmpty();
             app.doGet('/getNotebookList').done(function (data) {
                 var reuslt = data.result;
@@ -53,6 +55,19 @@
                         $cur.addClass('star');
                     }
                 });
+            },
+            "click; .search": function (e) {
+                var view = this;
+                view.$input.focus();
+            },
+            "input; .form-group input": function (e) {
+                var view = this;
+                var content = $(e.currentTarget).val();
+                if (content.length != 0) {
+                    view.$search.hide();
+                } else {
+                    view.$search.show();
+                }
             }
         },
         docEvents: {
