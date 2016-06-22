@@ -46,6 +46,9 @@
                 } else {
                     view.$delete.addClass('hidden');
                 }
+                if (e.keyCode == 13) {
+                    getSearchNoteList.call(view, view.uid, text)
+                }
             },
             "click; .delete": function (e) {
                 var view = this;
@@ -186,4 +189,31 @@
             }
         }
 	});
+
+    function getSearchNoteList(id, search) {
+        var view = this;
+        var props = {
+            uid: id,
+            search: search
+        }
+        app.doPost('/getSearchNoteList', props).done(function (data) {
+            var result = data.result;
+            var i = result.length;
+            var count = i;
+            if (i == 0) {
+                brite.display('Toast', 'body', {message: '搜索笔记名不存在!'})
+            } else {
+                while (i--) {
+                    var cur = result[i];
+                    cur.time = moment(cur.time).format('YYYY/MM/DD');
+                }
+                var notes = render('NoteList-item', {note: result});
+                view.$count.text(count);
+                view.$wrap.bEmpty();
+                view.$wrap.append(notes);
+                view.$wrap.find('li:first-child').addClass('checked');
+                view.$el.trigger('DISPLAY_NOTEVIEW');
+            }
+        });
+    }
 })();
